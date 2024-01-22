@@ -66,6 +66,8 @@ export async function getReviews(): Promise<Review[]> {
             full_name,
             text,
             rating,
+            "image": image.asset->url,
+            isProfilePhotoVisible
         }`
     )
 }

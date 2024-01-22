@@ -63,6 +63,8 @@ export default async function Home() {
             full_name={review.full_name}
             text={review.text}
             rating={review.rating}
+            image={review.image}
+            isProfilePhotoVisible={review.isProfilePhotoVisible}
           />
         ))}
       </div>

@@ -4,6 +4,8 @@ export type Review = {
     title: string;
     full_name: string;
     text: string;
-    rating: number;
+    rating: string;
     className?: string;
+    isProfilePhotoVisible: boolean,
+    image: string;
 }
