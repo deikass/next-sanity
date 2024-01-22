@@ -2,6 +2,7 @@ import { Project } from "@/types/Project";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
+import { Review } from "@/types/Review";
 
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -53,5 +54,18 @@ export async function getPage(slug: string): Promise<Page> {
         content
     }`,
         { slug }
+    )
+}
+
+export async function getReviews(): Promise<Review[]> {
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "review"]{
+            _id,
+            _createdAt,
+            title,
+            full_name,
+            text,
+            rating,
+        }`
     )
 }

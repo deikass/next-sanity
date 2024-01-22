@@ -1,9 +1,11 @@
-import { getProjects } from '@/sanity/sanity-utils';
+import { getProjects, getReviews } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import Review from '../components/Review';
 
 export default async function Home() {
   const projects = await getProjects();
+  const reviews = await getReviews();
 
   return (
     <div>
@@ -47,6 +49,22 @@ export default async function Home() {
           </Link>
         ))}
       </div>
+
+
+      <h2 className='mt-14 font-bold text-gray-700 text-3xl'>Reviews</h2>
+      <div className='flex gap-3 flex-wrap'>
+        {reviews.map((review) => (
+          <Review
+            className='mt-4 flex-1 min-w-64'
+            _createdAt={review._createdAt}
+            title={review.title}
+            fullName={review.full_name}
+            text={review.text}
+            rating={review.rating}
+          />
+        ))}
+      </div>
     </div>
+
   );
 }
