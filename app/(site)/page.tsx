@@ -55,10 +55,12 @@ export default async function Home() {
       <div className='flex gap-3 flex-wrap'>
         {reviews.map((review) => (
           <Review
+            key={review._id}
             className='mt-4 flex-1 min-w-64'
+            _id={review._id}
             _createdAt={review._createdAt}
             title={review.title}
-            fullName={review.full_name}
+            full_name={review.full_name}
             text={review.text}
             rating={review.rating}
           />
