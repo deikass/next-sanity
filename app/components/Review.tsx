@@ -13,11 +13,11 @@ const Review: React.FC<ReviewProps> = ({ title, text, className, rating, _create
 
 
             <div className="rating mt-2">
-                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" checked={rating === 1}/>
-                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" checked={rating === 2}/>
-                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" checked={rating === 3}/>
-                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" checked={rating === 4}/>
-                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" checked={rating === 5}/>
+                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" readOnly checked={rating === 1}/>
+                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" readOnly checked={rating === 2}/>
+                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" readOnly checked={rating === 3}/>
+                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" readOnly checked={rating === 4}/>
+                <input type="radio" name={`review-${_createdAt}`} className="mask mask-star-2 bg-orange-400" readOnly checked={rating === 5}/>
             </div>
         </div >
     )
