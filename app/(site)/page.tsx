@@ -6,6 +6,8 @@ import Review from '../components/Review';
 export default async function Home() {
   const projects = await getProjects();
   const reviews = await getReviews();
+  
+  console.log('reviews', reviews)
 
   return (
     <div>
@@ -60,11 +62,10 @@ export default async function Home() {
             _id={review._id}
             _createdAt={review._createdAt}
             title={review.title}
-            full_name={review.full_name}
             text={review.text}
             rating={review.rating}
-            image={review.image}
             isProfilePhotoVisible={review.isProfilePhotoVisible}
+            user={review.user}
           />
         ))}
       </div>

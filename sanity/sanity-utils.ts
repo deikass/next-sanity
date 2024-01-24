@@ -63,11 +63,16 @@ export async function getReviews(): Promise<Review[]> {
             _id,
             _createdAt,
             title,
-            full_name,
             text,
             rating,
-            "image": image.asset->url,
-            isProfilePhotoVisible
+            isProfilePhotoVisible,
+            user->{
+                _id,
+                _createdAt,
+                name,
+                lastName,
+                "image": image.asset->url,
+            }
         }`
     )
 }
