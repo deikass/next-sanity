@@ -6,17 +6,6 @@ type Props = {
     params: { project: string }
 }
 
-// const serializers = {
-//     types: {
-//       heading1: ({ children }) => React.createElement('h1', { className: 'text-3xl font-bold' }, children),
-//       heading2: ({ children }) => React.createElement('h2', { className: 'text-2xl font-bold' }, children),
-//       heading3: ({ children }) => React.createElement('h3', { className: 'text-xl font-bold' }, children),
-//       heading4: ({ children }) => React.createElement('h4', { className: 'text-lg font-bold' }, children),
-//       heading5: ({ children }) => React.createElement('h5', { className: 'text-base font-bold' }, children),
-//     },
-//   };
-
-
 export default async function Project({ params }: Props) {
     const slug = params.project;
     const project = await getProject(slug);

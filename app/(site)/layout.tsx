@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
 import Link from 'next/link'
-import { getPages } from '@/sanity/sanity-utils'
+import { getPages, getSiteColors } from '@/sanity/sanity-utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,11 +17,23 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const pages = await getPages();
+  const siteColors = await getSiteColors();
+  const headerColor = siteColors?.headerColor?.value;
+  const bodyColor = siteColors?.backgroundColor?.value;
+
+  const headerInlineStyle = {
+    backgroundColor: headerColor,
+  };
+
+  const bodyInlineStyle = {
+    backgroundColor: bodyColor,
+  };
+
 
   return (
     <html lang="en" >
       <body className={`${inter.className} max-w-3xl mx-auto py-10`}>
-        <header className='flex items-center justify-between'>
+        <header className='flex items-center justify-between p-5 rounded-md' style={headerInlineStyle}>
           <Link
             href="/"
             className='bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text 
@@ -43,7 +55,7 @@ export default async function RootLayout({
           </div>
         </header>
 
-        <main className='py-20'>{children}</main>
+        <main className='py-20 px-5 mt-8 rounded-md'  style={bodyInlineStyle}>{children}</main>
       </body>
     </html>
   )

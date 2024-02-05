@@ -3,6 +3,7 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
 import { Review } from "@/types/Review";
+import { SiteColors } from "@/types/Site-colors";
 
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -73,6 +74,17 @@ export async function getReviews(): Promise<Review[]> {
                 lastName,
                 "image": image.asset->url,
             }
+        }`
+    )
+}
+
+export async function getSiteColors(): Promise<SiteColors> {
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "colors" && _id == 'colors'][0]{
+            _id,
+            _createdAt,
+            backgroundColor,
+            headerColor
         }`
     )
 }

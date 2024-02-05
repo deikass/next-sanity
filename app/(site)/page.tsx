@@ -6,8 +6,6 @@ import Review from '../components/Review';
 export default async function Home() {
   const projects = await getProjects();
   const reviews = await getReviews();
-  
-  console.log('reviews', reviews)
 
   return (
     <div>
