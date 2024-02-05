@@ -1,6 +1,8 @@
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
 import schemas from "./sanity/schemas";
+import { structureTool } from "sanity/structure";
+import { myStructure } from "./sanity/sanity-desk-structure";
+import { simplerColorInput } from "sanity-plugin-simpler-color-input";
 
 const config = defineConfig({
     projectId: 'if5ipm03',
@@ -8,7 +10,14 @@ const config = defineConfig({
     title: 'My Personal Website',
     apiVersion: '2023-03-03',
     basePath: '/admin',
-    plugins: [deskTool()],
+    plugins: [
+        structureTool({
+          structure:myStructure
+        }),
+        simplerColorInput({
+          defaultColorFormat: 'rgba',
+        })
+      ],
     schema: { types: schemas }
 });
 
