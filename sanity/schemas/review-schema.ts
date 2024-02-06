@@ -1,7 +1,10 @@
+import {StarIcon} from '@sanity/icons'
+
 const review = {
     name: 'review',
     title: 'Reviews',
     type: 'document',
+    icon: StarIcon,
     fields: [
         {
             name: 'title',

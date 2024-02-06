@@ -1,31 +1,44 @@
+import { CubeIcon } from '@sanity/icons'
+import {CogIcon} from '@sanity/icons'
+import {DashboardIcon} from '@sanity/icons'
+import {WrenchIcon} from '@sanity/icons'
+import {ColorWheelIcon} from '@sanity/icons'
+import {DocumentTextIcon} from '@sanity/icons'
+
 export const myStructure = (S) => {
   return S.list()
     .title('Base')
     .items([
       S.listItem()
         .title('Site Settings panel')
+        .icon(CogIcon)
         .child(
           S.list()
             .title('Site Settings')
             .items([
               S.listItem()
                 .title('Metadata')
+                .icon(DocumentTextIcon)
                 .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
               S.listItem()
                 .title('Colors')
+                .icon(ColorWheelIcon)
                 .child(S.document().schemaType('colors').documentId('colors'))
             ])
         ),
       S.listItem()
         .title('Modules')
+        .icon(CubeIcon)
         .child(
           S.list()
             .title('Modules')
             .items([
               S.listItem()
+                .icon(DashboardIcon)
                 .title('Header Module')
                 .child(S.document().schemaType('headerModule').documentId('headerModule')),
               S.listItem()
+                .icon(DashboardIcon)
                 .title('Footer Module')
                 .child(S.document().schemaType('footerModule').documentId('footerModule'))
             ])

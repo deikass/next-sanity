@@ -1,9 +1,11 @@
 import { title } from "process";
+import {UsersIcon} from '@sanity/icons'
 
 const user = {
     name: 'user',
     title: 'Users',
     type: 'document',
+    icon: UsersIcon,
     fields: [
         {
             name: 'name',

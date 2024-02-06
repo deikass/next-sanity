@@ -1,7 +1,10 @@
+import {DocumentVideoIcon} from '@sanity/icons'
+
 const project = {
     name: 'project',
     title: 'Projects',
     type: 'document',
+    icon: DocumentVideoIcon,
     fields: [
         {
             name: 'name',

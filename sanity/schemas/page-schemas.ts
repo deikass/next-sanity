@@ -1,9 +1,11 @@
 import { title } from "process";
+import {DocumentsIcon} from '@sanity/icons'
 
 const page = {
     name: 'page',
     title: 'Pages',
     type: 'document',
+    icon: DocumentsIcon,
     fields: [
         {
             name: 'title',
