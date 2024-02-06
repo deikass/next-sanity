@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
 import Link from 'next/link'
-import { getPages, getSiteColors } from '@/sanity/sanity-utils'
+import { getPages, getSiteColors, getSiteMainHeader } from '@/sanity/sanity-utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +20,8 @@ export default async function RootLayout({
   const siteColors = await getSiteColors();
   const headerColor = siteColors?.headerColor?.value;
   const bodyColor = siteColors?.backgroundColor?.value;
+  const siteMainHeader = await getSiteMainHeader();
+  const mainNavLinks = siteMainHeader.links
 
   const headerInlineStyle = {
     backgroundColor: headerColor,
@@ -43,13 +45,13 @@ export default async function RootLayout({
           </Link>
 
           <div className='flex items-center gap-5 text-sm text-gray-600'>
-            {pages.map((page) => (
+            {mainNavLinks.map((link) => (
               <Link
               className='hover:text-gray-800 hover:underline'
-                key={page._id}
-                href={`/${page.slug}`}
+                key={link.title}
+                href={link.type === 'customLink' ? link.url : `/${link.url}`}
               >
-                {page.title}
+                {link.title}
               </Link>
             ))}
           </div>

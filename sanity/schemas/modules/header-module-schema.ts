@@ -1,3 +1,5 @@
+import { title } from "process";
+
 const headerModule = {
     name: 'headerModule',
     title: 'Header',
@@ -7,6 +9,31 @@ const headerModule = {
             name: 'logo',
             title: 'Logo',
             type: 'string',
+        },
+        {
+          name: 'links',
+          type: 'array',
+          title: 'Navigation links',
+          of: [
+            { type: 'reference', to: {type: 'page'} },
+            {
+              type: 'object',
+              name: 'customLink',
+              title: 'Custom Link',
+              fields: [
+                {
+                  name: 'title',
+                  title: 'Title',
+                  type: 'string',
+                },
+                {
+                  name: 'url',
+                  title: 'URL',
+                  type: 'url'
+                }
+              ],
+            },
+          ]
         }
     ],
     preview: {
@@ -14,7 +41,7 @@ const headerModule = {
           title: 'title',
         },
         prepare: () => ({
-          title: `Select header settings`,
+          title: `Main Header settings`,
         }),
       },
 }

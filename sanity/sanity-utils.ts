@@ -4,6 +4,7 @@ import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
 import { Review } from "@/types/Review";
 import { SiteColors } from "@/types/Site-colors";
+import { HeaderModule } from "@/types/Header-module";
 
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -87,4 +88,19 @@ export async function getSiteColors(): Promise<SiteColors> {
             headerColor
         }`
     )
+}
+
+export async function getSiteMainHeader(): Promise<HeaderModule> {
+  return createClient(clientConfig).fetch(`
+    *[_type == "headerModule"][0]{
+      _id,
+      _createdAt,
+      logo,
+      "links": links[]{
+        "title": coalesce(title, @->.title),
+        "url": coalesce(url, @->.slug.current, ""),
+        "type": _type
+      }
+    }
+  `);
 }
