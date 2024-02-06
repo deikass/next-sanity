@@ -11,7 +11,7 @@ const review = {
         {
             name: 'text',
             title: 'Text',
-            type: 'string',
+            type: 'text',
         },
         {
             title: 'Select review rating',

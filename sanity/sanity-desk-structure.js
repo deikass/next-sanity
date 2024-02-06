@@ -10,7 +10,7 @@ export const myStructure = (S) => {
             .items([
               S.listItem()
                 .title('Metadata')
-                .child(S.document().schemaType('siteSettings').documentId('875e222e-80e0-433f-95fc-841620d3a8ab')),
+                .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
               S.listItem()
                 .title('Colors')
                 .child(S.document().schemaType('colors').documentId('colors'))
