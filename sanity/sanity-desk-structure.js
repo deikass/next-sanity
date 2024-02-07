@@ -1,9 +1,9 @@
 import { CubeIcon } from '@sanity/icons'
-import {CogIcon} from '@sanity/icons'
-import {DashboardIcon} from '@sanity/icons'
-import {WrenchIcon} from '@sanity/icons'
-import {ColorWheelIcon} from '@sanity/icons'
-import {DocumentTextIcon} from '@sanity/icons'
+import { CogIcon } from '@sanity/icons'
+import { DashboardIcon } from '@sanity/icons'
+import { WrenchIcon } from '@sanity/icons'
+import { ColorWheelIcon } from '@sanity/icons'
+import { DocumentTextIcon } from '@sanity/icons'
 
 export const myStructure = (S) => {
   return S.list()
