@@ -8,5 +8,5 @@ export type Review = {
     rating: string;
     className?: string;
     isProfilePhotoVisible: boolean,
-    user: User;
+    user: User | null;
 }

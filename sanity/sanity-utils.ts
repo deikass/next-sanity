@@ -5,6 +5,7 @@ import { Page } from "@/types/Page";
 import { Review } from "@/types/Review";
 import { SiteColors } from "@/types/Site-colors";
 import { HeaderModule } from "@/types/Header-module";
+import { User } from "@/types/User";
 
 export async function getProjects(): Promise<Project[]> {
     return createClient(clientConfig).fetch(
@@ -104,3 +105,15 @@ export async function getSiteMainHeader(): Promise<HeaderModule> {
     }
   `);
 }
+
+export async function getUserById(userId: string):Promise<User> {
+    return createClient(clientConfig).fetch(
+      groq`*[_type == "user" && _id == $userId][0]{
+        _id,
+        name,
+        lastName,
+        "image": image.asset->url
+      }`,
+      { userId }
+    );
+  }

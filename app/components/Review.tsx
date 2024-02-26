@@ -36,8 +36,12 @@ const Review: React.FC<ReviewProps> = ({ title, text, className, rating, _create
                     {title}
                 </h3>
             </div>
-            
-            <div className=" italic text-gray-500">{user.name} {user.lastName}</div>
+
+            <div className=" italic text-gray-500">
+                {user?.name && (<span>{user.name}</span>)}
+                {user?.lastName && (<span>{user.lastName}</span>)}
+            </div>
+
             <p className=" text-gray-600">{text}</p>
             <div className="text-gray-400 pt-1">{_createdAt.toString()}</div>
 
