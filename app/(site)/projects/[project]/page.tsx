@@ -115,15 +115,15 @@ export default async function Project({ params }: Props) {
                 className="mt-10 mb-10 border-2 border-gray-700 object-cover rounded-xl"
             />
 
-            <ol className="mb-5">
-                {createTableOfContent(projectContent).map((heading) => (
-                    <li className="">
-                        <a href={'#' + heading.headingUrl}>
-                            {heading.level} - {heading.text}
-                        </a>
-                    </li>
-                ))}
-            </ol>
+<ol className="mb-5">
+    {createTableOfContent(projectContent).map((heading, index) => (
+        <li key={index + heading.headingUrl}>
+            <a href={'#' + heading.headingUrl}>
+                {heading.level} - {heading.text}
+            </a>
+        </li>
+    ))}
+</ol>
 
             <div className='prose prose-lg prose-headings:underline'>
                 <PortableText
