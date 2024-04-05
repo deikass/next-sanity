@@ -1,4 +1,5 @@
-import {DocumentVideoIcon} from '@sanity/icons'
+import { DocumentVideoIcon } from '@sanity/icons'
+import contentField from './content-filed-schema';
 
 const project = {
     name: 'project',
@@ -35,12 +36,7 @@ const project = {
             title: 'URL',
             type: 'url'
         },
-        {
-            name: 'content',
-            title: 'Content',
-            type: 'array',
-            of: [{ type: 'block'}]
-        }
+        contentField
     ]
 }
 

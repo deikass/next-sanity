@@ -10,7 +10,7 @@ export const getDefaultDocumentNode = (S: DocumentNodeBuilder, { schemaType }: {
   if (schemaType === "review") {
     return S.document().views([
       S.view.form(),
-      S.view.component(ReviewPreview).title('Review'),
+      S.view.component(ReviewPreview).title('Preview component'),
       S.view.component(JsonPreview).title('JSON')
     ]);
   }
